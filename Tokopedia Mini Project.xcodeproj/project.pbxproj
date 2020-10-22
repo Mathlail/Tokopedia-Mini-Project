@@ -3,27 +3,58 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005B18A7F34B9B8FCD6178D4 /* Pods_Tokopedia_Mini_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7974D24B277FE1D7418A18A8 /* Pods_Tokopedia_Mini_Project.framework */; };
+		4C1070A725419DCE00306C3E /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070A625419DCE00306C3E /* SearchModel.swift */; };
+		4C1070A92541A24700306C3E /* RequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070A82541A24700306C3E /* RequestParam.swift */; };
+		4C1070AB2541B62100306C3E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070AA2541B62100306C3E /* BaseResponse.swift */; };
+		4C1070B02541DD7500306C3E /* ProductSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070AF2541DD7500306C3E /* ProductSectionController.swift */; };
+		4C1070B32541DEB100306C3E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070B22541DEB100306C3E /* ItemCollectionViewCell.swift */; };
 		4C690E0025418FDC0097E0C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690DFF25418FDC0097E0C5 /* AppDelegate.swift */; };
 		4C690E0225418FDC0097E0C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E0125418FDC0097E0C5 /* SceneDelegate.swift */; };
-		4C690E0425418FDC0097E0C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E0325418FDC0097E0C5 /* ViewController.swift */; };
-		4C690E0725418FDC0097E0C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C690E0525418FDC0097E0C5 /* Main.storyboard */; };
 		4C690E0925418FDF0097E0C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C690E0825418FDF0097E0C5 /* Assets.xcassets */; };
 		4C690E0C25418FDF0097E0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C690E0A25418FDF0097E0C5 /* LaunchScreen.storyboard */; };
+		4C690E192541905F0097E0C5 /* SearchInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E142541905F0097E0C5 /* SearchInterfaces.swift */; };
+		4C690E1A2541905F0097E0C5 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E152541905F0097E0C5 /* SearchPresenter.swift */; };
+		4C690E1B2541905F0097E0C5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E162541905F0097E0C5 /* SearchViewController.swift */; };
+		4C690E1C2541905F0097E0C5 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E172541905F0097E0C5 /* SearchInteractor.swift */; };
+		4C690E1D2541905F0097E0C5 /* SearchWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E182541905F0097E0C5 /* SearchWireframe.swift */; };
+		4C690E24254190930097E0C5 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E1F254190930097E0C5 /* BaseWireframe.swift */; };
+		4C690E26254190930097E0C5 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E21254190930097E0C5 /* PresenterInterface.swift */; };
+		4C690E27254190930097E0C5 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E22254190930097E0C5 /* ViewInterface.swift */; };
+		4C690E28254190930097E0C5 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E23254190930097E0C5 /* InteractorInterface.swift */; };
+		4CB6893B254192D700C235A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB6893A254192D700C235A6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4847E8A63F73D4073B15BA9D /* Pods-Tokopedia Mini Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tokopedia Mini Project.debug.xcconfig"; path = "Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project.debug.xcconfig"; sourceTree = "<group>"; };
+		4C1070A425419BA800306C3E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		4C1070A625419DCE00306C3E /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		4C1070A82541A24700306C3E /* RequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParam.swift; sourceTree = "<group>"; };
+		4C1070AA2541B62100306C3E /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		4C1070AF2541DD7500306C3E /* ProductSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSectionController.swift; sourceTree = "<group>"; };
+		4C1070B22541DEB100306C3E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C690DFC25418FDC0097E0C5 /* Tokopedia Mini Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tokopedia Mini Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C690DFF25418FDC0097E0C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C690E0125418FDC0097E0C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4C690E0325418FDC0097E0C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4C690E0625418FDC0097E0C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C690E0825418FDF0097E0C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C690E0B25418FDF0097E0C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C690E0D25418FDF0097E0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C690E142541905F0097E0C5 /* SearchInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterfaces.swift; sourceTree = "<group>"; };
+		4C690E152541905F0097E0C5 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		4C690E162541905F0097E0C5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4C690E172541905F0097E0C5 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		4C690E182541905F0097E0C5 /* SearchWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWireframe.swift; sourceTree = "<group>"; };
+		4C690E1F254190930097E0C5 /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
+		4C690E21254190930097E0C5 /* PresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
+		4C690E22254190930097E0C5 /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
+		4C690E23254190930097E0C5 /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		4CB6893A254192D700C235A6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Viper/Extensions.swift; sourceTree = "<group>"; };
+		7974D24B277FE1D7418A18A8 /* Pods_Tokopedia_Mini_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tokopedia_Mini_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEC84A32B0FF719207728325 /* Pods-Tokopedia Mini Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tokopedia Mini Project.release.xcconfig"; path = "Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +62,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005B18A7F34B9B8FCD6178D4 /* Pods_Tokopedia_Mini_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1070A525419DB900306C3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C1070A625419DCE00306C3E /* SearchModel.swift */,
+				4C1070A82541A24700306C3E /* RequestParam.swift */,
+				4C1070AA2541B62100306C3E /* BaseResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C1070AE2541DD5900306C3E /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+				4C1070AF2541DD7500306C3E /* ProductSectionController.swift */,
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
+		4C1070B12541DEB100306C3E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C1070B22541DEB100306C3E /* ItemCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4C690DF325418FDC0097E0C5 = {
 			isa = PBXGroup;
 			children = (
 				4C690DFE25418FDC0097E0C5 /* Tokopedia Mini Project */,
 				4C690DFD25418FDC0097E0C5 /* Products */,
+				9D4D9E079658D4DD8DDA0D33 /* Pods */,
+				B43DCE1B9322F3A9FC2BB051 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +116,68 @@
 		4C690DFE25418FDC0097E0C5 /* Tokopedia Mini Project */ = {
 			isa = PBXGroup;
 			children = (
+				4C1070B12541DEB100306C3E /* Cell */,
+				4C1070A525419DB900306C3E /* Model */,
+				4CB6893C254193BA00C235A6 /* Utility */,
+				4C690E1E254190920097E0C5 /* Viper */,
+				4C690E13254190450097E0C5 /* Search */,
 				4C690DFF25418FDC0097E0C5 /* AppDelegate.swift */,
 				4C690E0125418FDC0097E0C5 /* SceneDelegate.swift */,
-				4C690E0325418FDC0097E0C5 /* ViewController.swift */,
-				4C690E0525418FDC0097E0C5 /* Main.storyboard */,
 				4C690E0825418FDF0097E0C5 /* Assets.xcassets */,
 				4C690E0A25418FDF0097E0C5 /* LaunchScreen.storyboard */,
 				4C690E0D25418FDF0097E0C5 /* Info.plist */,
+				4C1070A425419BA800306C3E /* BridgingHeader.h */,
 			);
 			path = "Tokopedia Mini Project";
+			sourceTree = "<group>";
+		};
+		4C690E13254190450097E0C5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4C1070AE2541DD5900306C3E /* SectionController */,
+				4C690E142541905F0097E0C5 /* SearchInterfaces.swift */,
+				4C690E152541905F0097E0C5 /* SearchPresenter.swift */,
+				4C690E162541905F0097E0C5 /* SearchViewController.swift */,
+				4C690E172541905F0097E0C5 /* SearchInteractor.swift */,
+				4C690E182541905F0097E0C5 /* SearchWireframe.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		4C690E1E254190920097E0C5 /* Viper */ = {
+			isa = PBXGroup;
+			children = (
+				4C690E1F254190930097E0C5 /* BaseWireframe.swift */,
+				4C690E21254190930097E0C5 /* PresenterInterface.swift */,
+				4C690E22254190930097E0C5 /* ViewInterface.swift */,
+				4C690E23254190930097E0C5 /* InteractorInterface.swift */,
+			);
+			path = Viper;
+			sourceTree = "<group>";
+		};
+		4CB6893C254193BA00C235A6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4CB6893A254192D700C235A6 /* Extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		9D4D9E079658D4DD8DDA0D33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4847E8A63F73D4073B15BA9D /* Pods-Tokopedia Mini Project.debug.xcconfig */,
+				DEC84A32B0FF719207728325 /* Pods-Tokopedia Mini Project.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B43DCE1B9322F3A9FC2BB051 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7974D24B277FE1D7418A18A8 /* Pods_Tokopedia_Mini_Project.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C690E1025418FDF0097E0C5 /* Build configuration list for PBXNativeTarget "Tokopedia Mini Project" */;
 			buildPhases = (
+				D7BE7D8E9CB496ACB47D32AB /* [CP] Check Pods Manifest.lock */,
 				4C690DF825418FDC0097E0C5 /* Sources */,
 				4C690DF925418FDC0097E0C5 /* Frameworks */,
 				4C690DFA25418FDC0097E0C5 /* Resources */,
+				5F2DD9C12CE0E10D7AEE3665 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +242,81 @@
 			files = (
 				4C690E0C25418FDF0097E0C5 /* LaunchScreen.storyboard in Resources */,
 				4C690E0925418FDF0097E0C5 /* Assets.xcassets in Resources */,
-				4C690E0725418FDC0097E0C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F2DD9C12CE0E10D7AEE3665 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7BE7D8E9CB496ACB47D32AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tokopedia Mini Project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C690DF825418FDC0097E0C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C690E0425418FDC0097E0C5 /* ViewController.swift in Sources */,
+				4C1070AB2541B62100306C3E /* BaseResponse.swift in Sources */,
+				4C1070A725419DCE00306C3E /* SearchModel.swift in Sources */,
+				4C690E28254190930097E0C5 /* InteractorInterface.swift in Sources */,
+				4C1070B02541DD7500306C3E /* ProductSectionController.swift in Sources */,
+				4C690E1C2541905F0097E0C5 /* SearchInteractor.swift in Sources */,
+				4C690E1D2541905F0097E0C5 /* SearchWireframe.swift in Sources */,
+				4C690E1B2541905F0097E0C5 /* SearchViewController.swift in Sources */,
+				4C1070B32541DEB100306C3E /* ItemCollectionViewCell.swift in Sources */,
+				4C690E24254190930097E0C5 /* BaseWireframe.swift in Sources */,
+				4C690E26254190930097E0C5 /* PresenterInterface.swift in Sources */,
+				4C1070A92541A24700306C3E /* RequestParam.swift in Sources */,
 				4C690E0025418FDC0097E0C5 /* AppDelegate.swift in Sources */,
+				4CB6893B254192D700C235A6 /* Extensions.swift in Sources */,
+				4C690E192541905F0097E0C5 /* SearchInterfaces.swift in Sources */,
+				4C690E1A2541905F0097E0C5 /* SearchPresenter.swift in Sources */,
 				4C690E0225418FDC0097E0C5 /* SceneDelegate.swift in Sources */,
+				4C690E27254190930097E0C5 /* ViewInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4C690E0525418FDC0097E0C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C690E0625418FDC0097E0C5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C690E0A25418FDF0097E0C5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +444,7 @@
 		};
 		4C690E1125418FDF0097E0C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4847E8A63F73D4073B15BA9D /* Pods-Tokopedia Mini Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -293,6 +456,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Binus.Tokopedia-Mini-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fdn-fajri/Documents/Kuliah/Tokopedia Mini Project/Tokopedia Mini Project/BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,6 +464,7 @@
 		};
 		4C690E1225418FDF0097E0C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEC84A32B0FF719207728325 /* Pods-Tokopedia Mini Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Binus.Tokopedia-Mini-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fdn-fajri/Documents/Kuliah/Tokopedia Mini Project/Tokopedia Mini Project/BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

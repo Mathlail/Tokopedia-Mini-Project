@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework
+${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework
+${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework
+${BUILT_PRODUCTS_DIR}/WARangeSlider/WARangeSlider.framework
