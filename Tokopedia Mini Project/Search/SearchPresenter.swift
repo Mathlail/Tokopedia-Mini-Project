@@ -31,20 +31,22 @@ final class SearchPresenter {
     func fetchData(refresh: Bool = false) {
         if refresh { _startIndex = 0 }
         let param = RequestParam(query: "samsung", minimalPrice: "1000", maximalPrice: "1000", wholeSale: true, official: false, gold: "2", start: String(_startIndex), rows: "10")
-        print(param)
         _interactor.getProductList(param: param) { [weak self] (result) in
+            self?._view.showLoader(false)
             switch result {
             case .success(let data):
-                self?.showData(data)
+                self?.showData(refresh, data)
                 if !data.isEmpty { self?._startIndex += data.count }
-                print(self?._startIndex)
             case .failure(let error):
-                print(error.localizedDescription)
+                self?._wireframe.showAlert(withTitle: "Ooops...", message: error.localizedDescription, cancelButtonTitle: "Cancel", confirmButtonTitle: "Retry") { [weak self] (_) in
+                    self?.fetchData(refresh: true)
+                }
             }
         }
     }
     
-    func showData(_ data: [ListDiffable]) {
+    func showData(_ refresh: Bool, _ data: [ListDiffable]) {
+        if refresh { _dataProduct.removeAll() }
         _dataProduct.append(contentsOf: data)
         _view.showData(_dataProduct)
     }
@@ -55,10 +57,19 @@ final class SearchPresenter {
 
 extension SearchPresenter: SearchPresenterInterface {
     func viewDidLoad() {
+        _view.showLoader(true)
         fetchData(refresh: true)
     }
     
     func requestLoadMore() {
         fetchData()
+    }
+    
+    func requestRefresh() {
+        fetchData(refresh: true)
+    }
+    
+    func didSelectFilterAction() {
+        _wireframe.navigate(to: .filter)
     }
 }

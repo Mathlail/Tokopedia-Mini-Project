@@ -34,22 +34,22 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let control = UIRefreshControl()
-        control.addTarget(self, action: #selector(didRefreshControlValueChanged), for: .valueChanged)
-        
-        return control
-    }()
-    
     lazy var filterButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Filter", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(red: 77.0/255.0, green: 169.0/255.0, blue: 52.0/255.0, alpha: 1)
+        button.backgroundColor = .tokopediaGreen
+        button.isHidden = true
         button.addTarget(self, action: #selector(didSelectFilterButton), for: .touchUpInside)
         return button
+    }()
+    
+    lazy private var loadingView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     // Data
@@ -59,17 +59,11 @@ final class SearchViewController: UIViewController {
     var showDataFunction: ((_ data: [ListDiffable]) -> ())?
     
     // Refresh setup
-    var refreshFunction: (() -> ())? {
-        didSet {
-            if refreshFunction != nil {
-                collectionView.addSubview(refreshControl)
-            } else {
-                refreshControl.removeFromSuperview()
-            }
-        }
-    }
+    var refreshFunction: (() -> ())?
     
     var loadMoreFunction: (() -> ())?
+    
+    var isShowingButton = false
 
     // MARK: - Lifecycle -
 
@@ -81,28 +75,41 @@ final class SearchViewController: UIViewController {
             self?.data = data
             self?.adapter.performUpdates(animated: true, completion: { [weak self] (_) in
                 self?.adapter.collectionView?.infiniteScrollingView.stopAnimating()
+                self?.adapter.collectionView?.pullToRefreshView.stopAnimating()
+                if self?.isShowingButton == false {
+                    self?.filterButton.isHidden = false
+                    self?.isShowingButton = true
+                }
             })
         }
         
         loadMoreFunction = { [weak self] in
             self?.presenter.requestLoadMore()
         }
+        
+        refreshFunction = { [weak self] in
+            self?.presenter.requestRefresh()
+        }
         presenter.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         let layoutFrameGuide = view.layoutGuide.layoutFrame
         collectionView.frame = layoutFrameGuide
+        loadingView.frame = view.bounds
     }
     
     func setupViews() {
         view.addSubview(collectionView)
         view.addSubview(filterButton)
+        view.addSubview(loadingView)
         collectionView.addInfiniteScrolling(actionHandler: { [weak self] in
             self?.presenter.requestLoadMore()
         })
+        collectionView.addPullToRefresh { [weak self] in
+            self?.refreshFunction?()
+        }
         adapter.collectionView = collectionView
         adapter.dataSource = self
         NSLayoutConstraint.activate([
@@ -113,12 +120,8 @@ final class SearchViewController: UIViewController {
         ])
     }
     
-    @objc func didRefreshControlValueChanged() {
-        refreshFunction?()
-    }
-    
     @objc func didSelectFilterButton() {
-        
+        presenter.didSelectFilterAction()
     }
     
     func listSectionController(forObject object: Any) -> ListSectionController {
@@ -137,6 +140,16 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewInterface {
     func showData(_ data: [ListDiffable]) {
         showDataFunction?(data)
+    }
+    
+    func showLoader(_ show: Bool) {
+        if show {
+            loadingView.startAnimating()
+        } else {
+            loadingView.stopAnimating()
+            adapter.collectionView?.infiniteScrollingView.stopAnimating()
+            adapter.collectionView?.pullToRefreshView.stopAnimating()
+        }
     }
 }
 

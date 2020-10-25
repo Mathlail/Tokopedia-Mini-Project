@@ -8,12 +8,13 @@
 
 import UIKit
 
-enum merchantType: String {
+enum MerchantType: String {
     case officialStore = "Official Store"
     case goldMerchant = "Gold Merchant"
 }
 
 enum SearchNavigationOption {
+    case filter
 }
 
 protocol SearchWireframeInterface: WireframeInterface {
@@ -24,6 +25,7 @@ protocol SearchViewInterface: ViewInterface {
 }
 
 protocol SearchPresenterInterface: PresenterInterface {
+    func didSelectFilterAction()
 }
 
 protocol SearchInteractorInterface: InteractorInterface {

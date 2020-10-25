@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RequestParam: Encodable {
+struct RequestParam: Codable {
     private(set) var query: String?
     private(set) var minimalPrice: String?
     private(set) var maximalPrice: String?

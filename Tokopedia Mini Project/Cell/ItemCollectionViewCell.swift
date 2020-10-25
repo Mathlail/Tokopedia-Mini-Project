@@ -93,7 +93,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
             }
             
             DispatchQueue.main.async {
-                self.contentImage.image = UIImage(data: data!)
+                guard let imageData = data else { return }
+                self.contentImage.image = UIImage(data: imageData)
             }
         }.resume()
     }

@@ -95,6 +95,17 @@ extension UIScreen {
 	static var screenBounds: CGRect {
 		return UIScreen.main.bounds
 	}
+    
+    static func getStatusBarHeight() -> CGFloat {
+        var statusBarHeight: CGFloat = 0
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusBarHeight = UIApplication.shared.statusBarFrame.height
+        }
+        return statusBarHeight
+    }
 	
 }
 
@@ -129,4 +140,9 @@ extension UIViewController {
 			}
 		}
 	}
+}
+
+
+extension UIColor {
+    static let tokopediaGreen = UIColor(red: 77.0/255.0, green: 169.0/255.0, blue: 52.0/255.0, alpha: 1)
 }

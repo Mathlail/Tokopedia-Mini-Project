@@ -1,7 +1,7 @@
 import IGListKit
 
 protocol ViewInterface: class {
-    func showLoader(_ show: Bool, isFirstPage: Bool)
+    func showLoader(_ show: Bool)
     
     func showData(_ data: [ListDiffable])
     func showData(_ data: [ListDiffable], scrollToItem item: ListDiffable)
@@ -9,7 +9,7 @@ protocol ViewInterface: class {
 }
 
 extension ViewInterface {
-    func showLoader(_ show: Bool, isFirstPage: Bool) {
+    func showLoader(_ show: Bool) {
         fatalError("Implementation pending...")
     }
     

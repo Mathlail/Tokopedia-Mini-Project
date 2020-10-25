@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		005B18A7F34B9B8FCD6178D4 /* Pods_Tokopedia_Mini_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7974D24B277FE1D7418A18A8 /* Pods_Tokopedia_Mini_Project.framework */; };
-		4C1070A725419DCE00306C3E /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070A625419DCE00306C3E /* SearchModel.swift */; };
+		4C1070A725419DCE00306C3E /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070A625419DCE00306C3E /* ProductModel.swift */; };
 		4C1070A92541A24700306C3E /* RequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070A82541A24700306C3E /* RequestParam.swift */; };
 		4C1070AB2541B62100306C3E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070AA2541B62100306C3E /* BaseResponse.swift */; };
 		4C1070B02541DD7500306C3E /* ProductSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1070AF2541DD7500306C3E /* ProductSectionController.swift */; };
@@ -26,13 +26,21 @@
 		4C690E26254190930097E0C5 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E21254190930097E0C5 /* PresenterInterface.swift */; };
 		4C690E27254190930097E0C5 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E22254190930097E0C5 /* ViewInterface.swift */; };
 		4C690E28254190930097E0C5 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C690E23254190930097E0C5 /* InteractorInterface.swift */; };
+		4C93526625436A60007E7F31 /* FilterInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526125436A60007E7F31 /* FilterInterfaces.swift */; };
+		4C93526725436A60007E7F31 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526225436A60007E7F31 /* FilterPresenter.swift */; };
+		4C93526825436A60007E7F31 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526325436A60007E7F31 /* FilterViewController.swift */; };
+		4C93526925436A60007E7F31 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526425436A60007E7F31 /* FilterInteractor.swift */; };
+		4C93526A25436A60007E7F31 /* FilterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526525436A60007E7F31 /* FilterWireframe.swift */; };
+		4C93526D25437426007E7F31 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526C25437425007E7F31 /* FilterView.swift */; };
+		4C93526F254386C4007E7F31 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93526E254386C4007E7F31 /* NumberFormatter.swift */; };
 		4CB6893B254192D700C235A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB6893A254192D700C235A6 /* Extensions.swift */; };
+		4CBCB7EA25456F80001CC361 /* ShopTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBCB7E925456F80001CC361 /* ShopTypeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4847E8A63F73D4073B15BA9D /* Pods-Tokopedia Mini Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tokopedia Mini Project.debug.xcconfig"; path = "Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project.debug.xcconfig"; sourceTree = "<group>"; };
 		4C1070A425419BA800306C3E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		4C1070A625419DCE00306C3E /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		4C1070A625419DCE00306C3E /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		4C1070A82541A24700306C3E /* RequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParam.swift; sourceTree = "<group>"; };
 		4C1070AA2541B62100306C3E /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4C1070AF2541DD7500306C3E /* ProductSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSectionController.swift; sourceTree = "<group>"; };
@@ -52,7 +60,15 @@
 		4C690E21254190930097E0C5 /* PresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
 		4C690E22254190930097E0C5 /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		4C690E23254190930097E0C5 /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		4C93526125436A60007E7F31 /* FilterInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInterfaces.swift; sourceTree = "<group>"; };
+		4C93526225436A60007E7F31 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
+		4C93526325436A60007E7F31 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		4C93526425436A60007E7F31 /* FilterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
+		4C93526525436A60007E7F31 /* FilterWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterWireframe.swift; sourceTree = "<group>"; };
+		4C93526C25437425007E7F31 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		4C93526E254386C4007E7F31 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		4CB6893A254192D700C235A6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Viper/Extensions.swift; sourceTree = "<group>"; };
+		4CBCB7E925456F80001CC361 /* ShopTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTypeView.swift; sourceTree = "<group>"; };
 		7974D24B277FE1D7418A18A8 /* Pods_Tokopedia_Mini_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tokopedia_Mini_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC84A32B0FF719207728325 /* Pods-Tokopedia Mini Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tokopedia Mini Project.release.xcconfig"; path = "Target Support Files/Pods-Tokopedia Mini Project/Pods-Tokopedia Mini Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +88,7 @@
 		4C1070A525419DB900306C3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4C1070A625419DCE00306C3E /* SearchModel.swift */,
+				4C1070A625419DCE00306C3E /* ProductModel.swift */,
 				4C1070A82541A24700306C3E /* RequestParam.swift */,
 				4C1070AA2541B62100306C3E /* BaseResponse.swift */,
 			);
@@ -116,6 +132,7 @@
 		4C690DFE25418FDC0097E0C5 /* Tokopedia Mini Project */ = {
 			isa = PBXGroup;
 			children = (
+				4C93526025436A46007E7F31 /* Filter */,
 				4C1070B12541DEB100306C3E /* Cell */,
 				4C1070A525419DB900306C3E /* Model */,
 				4CB6893C254193BA00C235A6 /* Utility */,
@@ -155,9 +172,32 @@
 			path = Viper;
 			sourceTree = "<group>";
 		};
+		4C93526025436A46007E7F31 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				4C93526B2543740D007E7F31 /* View */,
+				4C93526125436A60007E7F31 /* FilterInterfaces.swift */,
+				4C93526225436A60007E7F31 /* FilterPresenter.swift */,
+				4C93526325436A60007E7F31 /* FilterViewController.swift */,
+				4C93526425436A60007E7F31 /* FilterInteractor.swift */,
+				4C93526525436A60007E7F31 /* FilterWireframe.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		4C93526B2543740D007E7F31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C93526C25437425007E7F31 /* FilterView.swift */,
+				4CBCB7E925456F80001CC361 /* ShopTypeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4CB6893C254193BA00C235A6 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				4C93526E254386C4007E7F31 /* NumberFormatter.swift */,
 				4CB6893A254192D700C235A6 /* Extensions.swift */,
 			);
 			path = Utility;
@@ -295,18 +335,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1070AB2541B62100306C3E /* BaseResponse.swift in Sources */,
-				4C1070A725419DCE00306C3E /* SearchModel.swift in Sources */,
+				4C1070A725419DCE00306C3E /* ProductModel.swift in Sources */,
+				4C93526925436A60007E7F31 /* FilterInteractor.swift in Sources */,
+				4CBCB7EA25456F80001CC361 /* ShopTypeView.swift in Sources */,
 				4C690E28254190930097E0C5 /* InteractorInterface.swift in Sources */,
 				4C1070B02541DD7500306C3E /* ProductSectionController.swift in Sources */,
 				4C690E1C2541905F0097E0C5 /* SearchInteractor.swift in Sources */,
+				4C93526D25437426007E7F31 /* FilterView.swift in Sources */,
 				4C690E1D2541905F0097E0C5 /* SearchWireframe.swift in Sources */,
 				4C690E1B2541905F0097E0C5 /* SearchViewController.swift in Sources */,
+				4C93526725436A60007E7F31 /* FilterPresenter.swift in Sources */,
 				4C1070B32541DEB100306C3E /* ItemCollectionViewCell.swift in Sources */,
 				4C690E24254190930097E0C5 /* BaseWireframe.swift in Sources */,
 				4C690E26254190930097E0C5 /* PresenterInterface.swift in Sources */,
+				4C93526F254386C4007E7F31 /* NumberFormatter.swift in Sources */,
+				4C93526A25436A60007E7F31 /* FilterWireframe.swift in Sources */,
 				4C1070A92541A24700306C3E /* RequestParam.swift in Sources */,
 				4C690E0025418FDC0097E0C5 /* AppDelegate.swift in Sources */,
 				4CB6893B254192D700C235A6 /* Extensions.swift in Sources */,
+				4C93526825436A60007E7F31 /* FilterViewController.swift in Sources */,
+				4C93526625436A60007E7F31 /* FilterInterfaces.swift in Sources */,
 				4C690E192541905F0097E0C5 /* SearchInterfaces.swift in Sources */,
 				4C690E1A2541905F0097E0C5 /* SearchPresenter.swift in Sources */,
 				4C690E0225418FDC0097E0C5 /* SceneDelegate.swift in Sources */,
