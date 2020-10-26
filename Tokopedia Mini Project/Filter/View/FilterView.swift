@@ -153,6 +153,12 @@ class FilterView: UIView {
         return button
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupLineSlider()
+    }
+    
     func setupViews(){
         addSubview(topView)
         addSubview(applyButton)
@@ -236,6 +242,14 @@ class FilterView: UIView {
             
         ])
         
+    }
+    
+    func setupLineSlider() {
+        for i in 0...6 {
+            let view = UIView(frame: CGRect(x: priceSlider.frame.minX + (priceSlider.frame.width / 6) * CGFloat(i), y: priceSlider.frame.minY - 20, width: 2, height: 10))
+            view.backgroundColor = .systemGroupedBackground
+            topView.addSubview(view)
+        }
     }
     
     @objc func sliderValueChange(sender: RangeSlider){
