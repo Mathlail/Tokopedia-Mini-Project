@@ -27,6 +27,7 @@ class ProductSectionController: ListSectionController {
             let cell = collectionContext?.dequeueReusableCell(of: ItemCollectionViewCell.self, for: self, at: index) as? ItemCollectionViewCell else {
                 fatalError("viewModel or cell not set")
         }
+        print("impression - \(model.id ?? 0)")
         cell.bindModel(model)
         return cell
     }

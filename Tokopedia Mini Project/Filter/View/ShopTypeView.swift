@@ -33,7 +33,6 @@ class ShopTypeView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(#imageLiteral(resourceName: "ic_close").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .lightGray
-//        button.addTarget(self, action: #selector(_didTapBackButton), for: .touchUpInside)
         return button
     }()
     
@@ -52,7 +51,6 @@ class ShopTypeView: UIView {
         button.setTitle("Reset", for: .normal)
         button.setTitleColor(.tokopediaGreen, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-//        button.addTarget(self, action: #selector(_didTapSaveButton), for: .touchUpInside)
         return button
     }()
     

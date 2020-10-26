@@ -17,7 +17,7 @@ final class SearchPresenter {
     private let _wireframe: SearchWireframeInterface
     private let _interactor: SearchInteractorInterface
     
-    private var _dataProduct = [ListDiffable]()
+    private var _dataProduct: [ListDiffable]?
     private var _startIndex = 0
 
     // MARK: - Lifecycle -
@@ -29,8 +29,13 @@ final class SearchPresenter {
     }
     
     func fetchData(refresh: Bool = false) {
-        if refresh { _startIndex = 0 }
-        let param = RequestParam(query: "samsung", minimalPrice: "1000", maximalPrice: "1000", wholeSale: true, official: false, gold: "2", start: String(_startIndex), rows: "10")
+        if refresh {
+            _dataProduct?.removeAll()
+            _view.showData(_dataProduct ?? [])
+            _startIndex = 0
+        }
+        var param = _interactor.getDataFromUserDefault()
+        param.updateStartValue(String(_startIndex))
         _interactor.getProductList(param: param) { [weak self] (result) in
             self?._view.showLoader(false)
             switch result {
@@ -46,9 +51,10 @@ final class SearchPresenter {
     }
     
     func showData(_ refresh: Bool, _ data: [ListDiffable]) {
-        if refresh { _dataProduct.removeAll() }
-        _dataProduct.append(contentsOf: data)
-        _view.showData(_dataProduct)
+        if refresh { _dataProduct = nil }
+        if _dataProduct == nil { _dataProduct = [ListDiffable]() }
+        _dataProduct?.append(contentsOf: data)
+        _view.showData(_dataProduct ?? [])
     }
     
 }
@@ -70,6 +76,12 @@ extension SearchPresenter: SearchPresenterInterface {
     }
     
     func didSelectFilterAction() {
-        _wireframe.navigate(to: .filter)
+        _wireframe.navigate(to: .filter(delegate: self))
+    }
+}
+
+extension SearchPresenter: FilterDelegate {
+    func filterApplied() {
+        fetchData(refresh: true)
     }
 }

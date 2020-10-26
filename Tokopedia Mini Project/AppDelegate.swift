@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().backgroundColor = .white
         UINavigationBar.appearance().tintColor = .gray
+        let encoder = JSONEncoder()
+        if let encodedParam = try? encoder.encode(RequestParam()) {
+            UserDefaults.standard.set(encodedParam, forKey: FilterKey)
+        }
         return true
     }
 

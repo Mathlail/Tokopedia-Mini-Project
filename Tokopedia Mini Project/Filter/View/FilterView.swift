@@ -85,7 +85,6 @@ class FilterView: UIView {
     lazy var wholeSaleSwitch: UISwitch = {
         let uiSwitch = UISwitch(frame: CGRect.zero)
         uiSwitch.onTintColor = .tokopediaGreen
-//        uiSwitch.addTarget(self, action: #selector(switchValueChange(sender:)), for: .valueChanged)
         uiSwitch.translatesAutoresizingMaskIntoConstraints = false
         return uiSwitch
     }()
@@ -143,26 +142,6 @@ class FilterView: UIView {
         stackView.distribution = .equalCentering
         return stackView
     }()
-    
-//    lazy var goldMerchantView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .white
-//        view.layer.borderWidth = 0.5
-//        view.layer.borderColor = UIColor.lightGray.cgColor
-//        view.layer.cornerRadius = 17.5
-//        return view
-//    }()
-//
-//    lazy var officialMerchantView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .white
-//        view.layer.borderWidth = 0.5
-//        view.layer.borderColor = UIColor.lightGray.cgColor
-//        view.layer.cornerRadius = 17.5
-//        return view
-//    }()
 
     lazy var applyButton: UIButton = {
         let button = UIButton()
@@ -256,28 +235,7 @@ class FilterView: UIView {
             stackView.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -20),
             
         ])
-//
         
-//        if let price = UserDefaults.standard.object(forKey: "price") as? [String:AnyObject] {
-//            guard let minPrice = price["min_price"] as? NSString else {return}
-//            guard let maxPrice = price["max_price"] as? NSString else {return}
-//            priceSlider.lowerValue = Double(minPrice.floatValue)
-//            priceSlider.upperValue = Double(maxPrice.floatValue)
-//            minPriceLabel.text = "Rp \(Int(priceSlider.lowerValue).formattedWithSeparator)"
-//            maxPriceLabel.text = "Rp \(Int(priceSlider.upperValue).formattedWithSeparator)"
-//        }
-        
-        let wholeSale = UserDefaults.standard.bool(forKey: "wholeSale")
-        if wholeSale{
-            wholeSaleSwitch.setOn(true, animated: false)
-        } else {
-            wholeSaleSwitch.setOn(false, animated: false)
-        }
-        
-    }
-    
-    func resetFilter(){
-        setupViews()
     }
     
     @objc func sliderValueChange(sender: RangeSlider){
@@ -285,17 +243,7 @@ class FilterView: UIView {
         let roundedMaxValue = round(sender.upperValue * 10000000)
         minPriceLabel.text = "Rp \(Int(roundedMinValue).formattedWithSeparator)"
         maxPriceLabel.text = "Rp \(Int(roundedMaxValue).formattedWithSeparator)"
-//        let dictPrice = ["min_price":"\(roundedMinValue.removeZerosFromEnd())", "max_price":"\(roundedMaxValue.removeZerosFromEnd())"]
-//        UserDefaults.standard.setValue(dictPrice, forKey: "price")
     }
-//
-//    func switchValueChange(sender: UISwitch){
-//        if sender.isOn {
-//            UserDefaults.standard.set(true, forKey: "wholeSale")
-//        } else {
-//            UserDefaults.standard.set(false, forKey: "wholeSale")
-//        }
-//    }
     
     func setupStackView(_ types: [MerchantType]) {
         types.forEach { (name) in
@@ -342,12 +290,45 @@ class FilterView: UIView {
     }
     
     @objc func didSelectRemoveShopType(_ sender: UIButton) {
-        guard let removedView = stackView.arrangedSubviews.first(where: {$0.tag == sender.tag}) else { return }
-        stackView.removeArrangedSubview(removedView)
-        removedView.removeFromSuperview()
+        removeStackViewSubview(sender.tag)
     }
     
     func getSelectedShopType() -> (goldMerchant: Bool, officialMerchant: Bool) {
         return (stackView.arrangedSubviews.contains(where: {$0.tag == 0}), stackView.arrangedSubviews.contains(where: {$0.tag == 1}))
+    }
+    
+    func getsliderPrice() -> (lowerPrice: String, upperPrice: String) {
+        let roundedMinValue = max(100, round(priceSlider.lowerValue * 10000000))
+        let roundedMaxValue = round(priceSlider.upperValue * 10000000)
+        return (roundedMinValue.removeZerosFromEnd(), roundedMaxValue.removeZerosFromEnd())
+    }
+    
+    func removeStackViewSubview(_ tag: Int) {
+        guard let removedView = stackView.arrangedSubviews.first(where: {$0.tag == tag}) else { return }
+        stackView.removeArrangedSubview(removedView)
+        removedView.removeFromSuperview()
+    }
+    
+    func bindModel(_ model: RequestParam) {
+        var merchantTypes = [MerchantType]()
+        for (index, value) in [model.gold == "2" ? true : false, model.official].enumerated() {
+            if value ?? false {
+                if index == 0 {
+                    merchantTypes.append(.goldMerchant)
+                } else {
+                    merchantTypes.append(.officialStore)
+                }
+            }
+        }
+        setupStackView(merchantTypes)
+        priceSlider.lowerValue = model.convertedPrice().lowerPrice / 10000000
+        priceSlider.upperValue = model.convertedPrice().upperPrice / 10000000
+        minPriceLabel.text = "Rp \(Int(model.convertedPrice().lowerPrice).formattedWithSeparator)"
+        maxPriceLabel.text = "Rp \(Int(model.convertedPrice().upperPrice).formattedWithSeparator)"
+        if model.wholeSale ?? false {
+            wholeSaleSwitch.setOn(true, animated: false)
+        } else {
+            wholeSaleSwitch.setOn(false, animated: false)
+        }
     }
 }

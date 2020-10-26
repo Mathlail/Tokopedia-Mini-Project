@@ -14,7 +14,7 @@ enum MerchantType: String {
 }
 
 enum SearchNavigationOption {
-    case filter
+    case filter(delegate: FilterDelegate)
 }
 
 protocol SearchWireframeInterface: WireframeInterface {
@@ -22,6 +22,7 @@ protocol SearchWireframeInterface: WireframeInterface {
 }
 
 protocol SearchViewInterface: ViewInterface {
+    
 }
 
 protocol SearchPresenterInterface: PresenterInterface {
@@ -29,5 +30,6 @@ protocol SearchPresenterInterface: PresenterInterface {
 }
 
 protocol SearchInteractorInterface: InteractorInterface {
-    func getProductList(param: RequestParam, completion: @escaping (Result<[ProductModel], Error>) -> Void) 
+    func getProductList(param: RequestParam, completion: @escaping (Result<[ProductModel], Error>) -> Void)
+    func getDataFromUserDefault() -> RequestParam
 }

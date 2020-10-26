@@ -9,6 +9,7 @@
 import UIKit
 
 enum FilterNavigationOption {
+    case close(completionHandler: () -> Void)
 }
 
 protocol FilterWireframeInterface: WireframeInterface {
@@ -16,6 +17,7 @@ protocol FilterWireframeInterface: WireframeInterface {
 }
 
 protocol FilterViewInterface: ViewInterface {
+    func bindModelToView(_ model: RequestParam)
 }
 
 protocol FilterPresenterInterface: PresenterInterface {

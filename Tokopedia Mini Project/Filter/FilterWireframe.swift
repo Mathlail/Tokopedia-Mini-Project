@@ -14,12 +14,12 @@ final class FilterWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    init() {
+    init(delegate: FilterDelegate) {
         let moduleViewController = FilterViewController()
         super.init(viewController: moduleViewController)
         
         let interactor = FilterInteractor()
-        let presenter = FilterPresenter(wireframe: self, view: moduleViewController, interactor: interactor)
+        let presenter = FilterPresenter(wireframe: self, view: moduleViewController, interactor: interactor, delegate: delegate)
         moduleViewController.presenter = presenter
     }
 
@@ -30,5 +30,11 @@ final class FilterWireframe: BaseWireframe {
 extension FilterWireframe: FilterWireframeInterface {
 
     func navigate(to option: FilterNavigationOption) {
+        switch option {
+        case .close(let completionHandler):
+            navigationController?.dismiss(animated: true, completion: {
+                completionHandler()
+            })
+        }
     }
 }

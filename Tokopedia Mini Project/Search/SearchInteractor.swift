@@ -27,4 +27,14 @@ extension SearchInteractor: SearchInteractorInterface {
             }
         }
     }
+    
+    func getDataFromUserDefault() -> RequestParam {
+        if let savedRequestParam = UserDefaults.standard.object(forKey: FilterKey) as? Data {
+            let decoder = JSONDecoder()
+            if let loadedRequestParam = try? decoder.decode(RequestParam.self, from: savedRequestParam) {
+                return loadedRequestParam
+            }
+        }
+        return RequestParam()
+    }
 }

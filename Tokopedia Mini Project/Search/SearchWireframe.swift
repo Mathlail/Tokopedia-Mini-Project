@@ -31,8 +31,8 @@ extension SearchWireframe: SearchWireframeInterface {
 
     func navigate(to option: SearchNavigationOption) {
         switch option {
-        case .filter:
-            let rootViewcontroller = UINavigationController(rootViewController: FilterWireframe().viewController)
+        case .filter(let delegate):
+            let rootViewcontroller = UINavigationController(rootViewController: FilterWireframe(delegate: delegate).viewController)
             rootViewcontroller.modalPresentationStyle = .fullScreen
             navigationController?.present(rootViewcontroller, animated: true, completion: nil)
         }

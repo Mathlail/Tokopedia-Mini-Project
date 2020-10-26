@@ -24,9 +24,12 @@ final class FilterViewController: UIViewController {
     
     lazy var shopTypeView: ShopTypeView = {
         let view = ShopTypeView(frame: UIScreen.screenBounds)
+        view.isHidden = true
         view.closeButton.addTarget(self, action: #selector(didSelectCloseShopTypes(_:)), for: .touchUpInside)
         view.goldMerchantButton.addTarget(self, action: #selector(didSelectShopTypeButton(_:)), for: .touchUpInside)
         view.officialMerchantButton.addTarget(self, action: #selector(didSelectShopTypeButton(_:)), for: .touchUpInside)
+        view.applyButton.addTarget(self, action: #selector(didSelectApplyShopTypeButton(_:)), for: .touchUpInside)
+        view.resetButton.addTarget(self, action: #selector(didSelectResetShopTypeButton(_:)), for: .touchUpInside)
         return view
     }()
 
@@ -41,8 +44,7 @@ final class FilterViewController: UIViewController {
         title = "Filter"
         setupRightNavigationBar(withTitle: "Reset")
         setupLeftNavigationBar(withImage: #imageLiteral(resourceName: "ic_close"))
-        filterView.setupStackView([.officialStore, .goldMerchant])
-        shopTypeView.setupStackView([.goldMerchant])
+        presenter.viewDidLoad()
     }
     
     func setupLeftNavigationBar(withImage image: UIImage!) {
@@ -68,15 +70,33 @@ final class FilterViewController: UIViewController {
     }
     
     @objc func didTapRightBarButtonItem(_ sender: UIBarButtonItem) {
-        
+        filterView.removeStackViewSubview(0)
+        filterView.removeStackViewSubview(1)
+        filterView.bindModel(RequestParam())
     }
     
     @objc func didTapShopTypeView(_ sender: UITapGestureRecognizer) {
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {return}
 
-        UIView.transition(with: window, duration: 0.5, options: .curveEaseIn, animations: {
+        UIView.transition(with: window, duration: 0.25, options: .curveEaseIn, animations: {
+            var merchantTypes = [MerchantType]()
+            for (index, value) in [self.filterView.getSelectedShopType().goldMerchant, self.filterView.getSelectedShopType().officialMerchant].enumerated() {
+                if value {
+                    if index == 0 {
+                        merchantTypes.append(.goldMerchant)
+                    } else {
+                        merchantTypes.append(.officialStore)
+                    }
+                }
+            }
+            self.shopTypeView.setupStackView(merchantTypes)
             window.addSubview(self.shopTypeView)
-        }, completion: nil)
+        }, completion: { (completed) in
+            if completed {
+                self.shopTypeView.isHidden = false
+                
+            }
+        })
     }
 
     @objc func didSelectCloseShopTypes(_ sender: UIButton) {
@@ -92,11 +112,43 @@ final class FilterViewController: UIViewController {
     }
     
     @objc func didSelectApplyButton(_ sender: UIButton) {
-        presenter.didSelectApplyAction(minimalPrice: String(filterView.priceSlider.lowerValue), maximalPrice: String(filterView.priceSlider.upperValue), wholeSale: filterView.wholeSaleSwitch.isOn, official: filterView.getSelectedShopType().officialMerchant, gold: filterView.getSelectedShopType().goldMerchant)
+        presenter.didSelectApplyAction(minimalPrice: filterView.getsliderPrice().lowerPrice, maximalPrice: filterView.getsliderPrice().upperPrice, wholeSale: filterView.wholeSaleSwitch.isOn, official: filterView.getSelectedShopType().officialMerchant, gold: filterView.getSelectedShopType().goldMerchant)
+    }
+    
+    @objc func didSelectApplyShopTypeButton(_ sender: UIButton) {
+        for (index, value) in [shopTypeView.goldMerchantButton, shopTypeView.officialMerchantButton].enumerated() {
+            if value.isSelected {
+                if index == 0 {
+                    if !filterView.getSelectedShopType().goldMerchant {
+                        filterView.setupStackView([.goldMerchant])
+                    }
+                } else {
+                    if !filterView.getSelectedShopType().officialMerchant {
+                        filterView.setupStackView([.officialStore])
+                    }
+                }
+            } else {
+                if index == 0 {
+                    filterView.removeStackViewSubview(0)
+                } else {
+                    filterView.removeStackViewSubview(1)
+                }
+            }
+        }
+        didSelectCloseShopTypes(sender)
+    }
+    
+    @objc func didSelectResetShopTypeButton(_ sender: UIButton) {
+        [shopTypeView.goldMerchantButton, shopTypeView.officialMerchantButton].forEach { (button) in
+            button.isSelected = true
+        }
     }
 }
 
 // MARK: - Extensions -
 
 extension FilterViewController: FilterViewInterface {
+    func bindModelToView(_ model: RequestParam) {
+        filterView.bindModel(model)
+    }
 }
